@@ -1,6 +1,6 @@
 class SignupController < ApplicationController
 	def index
-		@users = User.with_attached_avatar
+		@users = User.all
 	end
 
   def new
