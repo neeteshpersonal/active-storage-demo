@@ -1,15 +1,3 @@
-<%= form_with scope: :user, local: true do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
- 
-  <p>
-    <%= form.label :avatar %><br>
-    <%= form.file_field :avatar %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+<% @users.each do |user| %>
+	<%= image_tag user.avatar.variant(resize: "500x500") %>
 <% end %>

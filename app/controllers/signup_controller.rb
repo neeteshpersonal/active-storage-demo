@@ -1,12 +1,16 @@
 class SignupController < ApplicationController
 	def index
-		@user = User.new
+		@users = User.with_attached_avatar
 	end
+
+  def new
+    @user = User.new
+  end
 
 	def create
     user = User.create!(user_params)
     session[:user_id] = user.id
-    redirect_to root_path
+    redirect_to signup_path(user)
   end
 
   def show
